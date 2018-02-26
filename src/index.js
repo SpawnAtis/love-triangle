@@ -12,18 +12,11 @@ module.exports = function getLoveTrianglesCount(preferences = []) {
     });
     obj.length = length;
 
-    let x;
-    let y;
     let counter = 0;
 
     for (let i =1; i <= obj.length; i++) {
-        x = obj[i];
-        y = obj[x];
-
-        if(x == i || y == x) continue;
-
-        if (obj[y] == i) counter++;
-
+        if(obj[i] === i || obj[obj[i]] === obj[i]) continue;
+        if (obj[obj[obj[i]]] === i) counter++;
     }
 
     return counter/3;
